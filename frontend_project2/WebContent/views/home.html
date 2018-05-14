@@ -1,0 +1,230 @@
+
+<style>
+.container{
+ position: relative;
+}
+#myImg {
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+    padding-left:10px;
+    padding-bottom:10px;
+    float:bottom;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+.button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    position:relative;
+    transition: .5s ease;
+    top: 125%;
+    left: 63%;
+    }
+
+.button5 {
+    background-color: #f7f7f7;
+    color: black;
+    border:#f7f7f7;
+    border-radius:5px;
+    
+}
+
+.button5:hover {
+    background-color:#3b5998;
+    color: white;
+}
+#s{
+font-size:35px;
+padding-left:20px;
+ font-family: "Century", Times, serif;
+ color:white;
+}
+#gallery{
+position:relative;
+margin:10px auto 0;
+display:block;
+width:100%;
+padding-bottom:6px;}
+
+#gallery img{
+display:block;
+width:851px;
+height:400px;
+margin:0;
+padding:5px;
+border:4px soild #eae9d4;
+-webkit-box-shadow:0 0 6px rgba(132, 132, 132, .75);
+-moz-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+box-shadow:0 0 6px rgba(132, 132, 132, .75);
+-webkit-border-radius:4px;
+-moz-border-radius:4px;
+border-radius:4px;}
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    padding-left:5px;
+    
+}
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    padding-left:20px;
+    padding-top:15px;
+}
+
+</style>
+
+<div class="w3-container">
+<div class="container">
+<div id="gallery">
+<img src="http://localhost:9081/backend_project2/setimage/{{currentUser.username}}" width="851px" height="315px" ng-show="currentUser.username">
+ 
+
+ <div class="top-left"><a class="btn btn-default" href="#/coverpic" ng-show="currentUser.firstname" aria-label="Settings">
+  <i class="fa fa-cog" aria-hidden="true"> Update Cover</i>
+</a></div>
+</div>
+<div class="bottom-left"><img ng-show="currentUser.username"  id="myImg" src="http://localhost:9081/backend_project2/getimage/{{currentUser.username}}"
+ width="200px" height="200px">
+ <element id="s" ng-show="currentUser.firstname" align="center">{{currentUser.firstname}} {{currentUser.lastname}}</element><br></div>
+ 
+   
+
+</div>
+</div>   
+   <script>
+   
+   </script>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+ <a href="#/profilepic" class="button button5" ng-show="currentUser.firstname"> Update Profile</a>
+  <div id="caption"></div>
+</div>
+ 
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
+ <h1 ng-hide="currentUser.username" class="qqq">Teekbook helps you connect and share </h1>
+ <h1 ng-hide="currentUser.username" class="qqq"> with the people in your life. </h1>
+ <img src="images/People.png" class="img-rounded" ng-hide="currentUser.username" style="padding-left:60px; padding-top:5px;">
+ 
+<style>
+.qqq{
+padding-left:50px;
+padding-top:10px;
+color:#000f2d;
+font-family:Century;
+
+}
+</style>

@@ -1,0 +1,91 @@
+
+<style>
+#textarea {
+  outline: none;
+  border: none;
+  display: block;
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	font-family: $ptsans;
+	font-size: rem(16);
+  color: $text-color;
+  }
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+button{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margine:0;
+    
+}
+
+
+button:hover {
+    background-color: #45a049;
+    
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+#s{
+word-spacing:1px;
+}
+#q{
+padding:5px;
+}
+</style>
+
+<div class="row">
+<div>
+<div id="q" class="panel panel-default">
+<div class="panel-heading">
+<div><b>Title: </b>{{blogPost.title}}</div>
+<img class="img-rounded" src="http://localhost:9081/backend_project2/getimage/{{blogPost.createdBy.username}}" width="60" height="60"><br>{{blogPost.username}}
+({{blogPost.postedOn | date:'medium'}})
+</div>
+<div class="panel-body"><b>Description: </b>{{blogPost.description}}</div>
+</div>
+</div>
+</div>
+   <div class="container">
+     <form>
+<textarea rows="10" cols="60" ng-model="blogComment.body" placeholder="Write Something.." required></textarea><br>
+     <button ng-click="addComment()" value="Post Comment" >Post Comment</button>
+     
+     </form>
+        </div>
+        <br>
+        <div class="container">
+      <div class="row">
+     <button ng-click="getBlogComments(blogPost.id)" id="s"> Show Blog Comments</button>
+     <ul ng-show="showComments">
+     <li ng-repeat="comment in blogComments" style="list-style: none;">
+     <div>
+     <br>
+     <img  class="img-rounded" src="http://localhost:9081/backend_project2/getimage/{{comment.commentedBy.username}}" width="60" height="60"> <b>{{comment.commentedBy.username}} {{comment.commentedBy.lastname}}</b> <span>({{comment.commentedOn | date:'medium'}})</span>
+         <div> 
+     <span>{{comment.body}}</span>
+      <br>
+     </div>
+     </div>
+     </li>
+     </ul>
+     </div>
+     </div>

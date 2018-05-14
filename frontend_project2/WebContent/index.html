@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+     
+   
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    
+  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"rel="stylesheet" />
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<title>Teekbook</title>
+<style>
+#apple{
+padding-left:70px;
+}
+#c{
+padding-left:5px;
+}
+
+</style>
+<style>
+.navbar-inverse {
+    background-color:#3b5998;
+    border-color: #E7E7E7;
+}
+ .navbar-collapse{
+    background-color:#3b5998;
+    border-color: #E7E7E7;
+}
+</style>
+</head>
+<body ng-app="myApp" style="background-color: #f7f7f7;">
+
+
+<header>
+           <nav class="navbar navbar-inverse">
+            
+           <div class="container-fluid">
+		<button type="button" class="navbar-toggle collapsed" 
+   data-toggle="collapse" data-target="#collapse-example" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+          
+                     <div id="apple" class="navbar-header">
+                   <a class="navbar-brand" href="#/home" ><img src="https://png.icons8.com/metro/50/000000/t-lowercase.png" title="Teekbook" width="26" height="26"></a>
+                </div>
+
+<div class="collapse navbar-collapse" id="collapse-example">
+<div class="Container-fluid">
+                <ul class="nav navbar-nav ">
+ <li><a href="#/registration" ng-hide="currentUser.firstname" style="color: #f7f7f7;">Register</a></li>
+ <li><a href="#/login" ng-hide="currentUser.firstname" style="color: #f7f7f7;">login</a></li>
+
+ <li><a href="#/savejob" ng-show="currentUser.role=='Admin'"style="color: #f7f7f7;">Save Job Details</a><li>
+ <li><a href="#/edituserprofile" ng-show="currentUser.firstname" style="color: #f7f7f7;">Edit Profile</a></li>
+ 
+ <li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="currentUser.username" style="color: #f7f7f7;"> Blog
+						<b	class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/getallblogs">view all blogs</a></li>
+							<li><a href="#/saveblogpost">Post
+									Blog</a></li>
+						</ul></li>
+ 
+ 
+ 
+ <li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="currentUser.username"style="color: #f7f7f7;"> Friend <b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/suggestedusers">List of Suggested Users</a></li>
+							<li><a href="#/listoffriends">Friends</a></li>
+						</ul></li>
+				  
+  
+ <li><a href="#/profilepic" ng-show="currentUser.firstname">
+<img src="http://localhost:9081/backend_project2/getimage/{{currentUser.username}}" 
+   alt="Upload image" width="30px" height="30px" class="img-rounded"> </a></li>
+    
+   <li><a href="" ng-show="currentUser.firstname" style="color: #f7f7f7;"> {{currentUser.firstname}}</a></li>
+   
+   <li><a href="#chat" ng-show="currentUser.username">
+ <img src="https://png.icons8.com/facebook-messenger/ios7/25" title="Messenger" width="25" height="25" > </a></li>
+   
+   <li><a href="#/pendingrequests" ng-show="currentUser.username">
+<img src="https://png.icons8.com/user-filled/ios7/25" title="Friend Request" width="25" height="25">
+</a></li>
+   
+   <li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="currentUser.username"><b
+							class="caret"></b></a>
+						<ul class="dropdown-menu" style="color: #f7f7f7;">
+							 <li><a href="#/getalljobs" ng-show="currentUser.firstname">GetAllJobs</a></li>
+							 <li><a href="#/edituserprofile" ng-show="currentUser.firstname">Edit Profile</a></li>
+							 <li><a href="" ng-click="logout()" ng-show="currentUser.firstname">logout</a></li>
+				             
+						</ul></li>
+  
+ </ul>
+ </div>
+            </div>
+            </div>
+            
+            </nav>
+        </header>
+<div ng-view></div>
+</body>
+     <script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+<!--  Angular JS ngRoute -->
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+	<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
+<!-- BootStrap -->
+<!--  
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
+<script type="text/javascript"
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	  
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
+      
+      <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+  -->   
+     <script type="text/javascript" src="js/app.js"></script>
+     <script type="text/javascript" src="controller/usercontroller.js"></script>
+     <script type="text/javascript" src="service/userservice.js"></script>
+     <script type="text/javascript" src="controller/jobcontroller.js"></script>
+      <script type="text/javascript" src="service/jobservice.js"></script>
+      <script type="text/javascript" src="controller/blogcontroller.js"></script>
+      <script type="text/javascript" src="service/blogpostservice.js"></script>
+      <script type="text/javascript" src="controller/blogdetailcontroller.js"></script>
+      
+      
+       <script type="text/javascript" src="service/friendservice.js"></script>
+      <script type="text/javascript" src="controller/friendcontroller.js"></script>
+      
+      <script src="js/sockjs/sockjs.js"></script>
+    <script src="js/stomp/dist/stomp.js"></script>
+
+
+<script type="text/javascript" src="controller/chatcontroller.js"></script>
+<script type="text/javascript" src="service/chatservice.js"></script>
+
+
+      
+</html>
+
+
+
+
+
+
+
+

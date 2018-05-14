@@ -1,0 +1,44 @@
+
+<style>
+input,textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+button{
+    background-color: #3b5998;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margine:0;
+}
+
+button:hover {
+    background-color: ;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+{{message}}
+<form>
+<div class="container">
+<label>Blog Title</label>
+<input ng-model="blogPost.title" placeholder="Blog Title.." required></input>
+
+
+<label>Enter Blog Description</label>
+<textarea rows="10" cols="50" ng-model="blogPost.description" placeholder="Write something.."  required></textarea>
+<button  ng-click="saveBlogPost()">Post Blog</button>
+</div>
+</form>

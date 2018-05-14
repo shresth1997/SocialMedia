@@ -1,0 +1,62 @@
+
+<style>
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color:#3b5998;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margine:0;
+}
+
+input[type=submit]:hover {
+    background-color: #2b467f;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+<span>
+{{message}}
+</span>
+<div class="container">
+  <form action="/action_page.php">
+    <label for="fname">Job Title</label>
+    <input type="text" name="title" ng-model="job.jobTitle" placeholder="Job Title..">
+
+    <label for="lname">Years of Experience</label>
+    <input type="text" ng-model="job.yrsOfExp" placeholder="Years Required..">
+
+    <label for="lname">Salary</label>
+    <input type="text" ng-model="job.salary" placeholder="Salary..">
+  
+    <label for="lname">Skills Required</label>
+    <input type="text" ng-model="job.skillsRequired" placeholder="Skills Required..">
+    
+    <label for="lname">Company Name</label>
+   <input type="text" ng-model="job.companyName" placeholder="Company Name..">
+    
+    <label for="lname">Location</label>
+    <input type="text" ng-model="job.location" placeholder="Location..">
+    <label for="subject">Job Description</label>
+   <textarea ng-model="job.jobDescription" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Save Job" ng-click="saveJob()">
+  </form>
+</div>
+

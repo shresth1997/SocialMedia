@@ -1,0 +1,80 @@
+<style>
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+input[type=password]{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    
+}
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margine:0;
+    
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+    
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+#x{
+padding-left:100px;
+ font-family: "Times New Roman", Times, serif;
+}
+p{
+font-size:20px;
+padidng-left:95px;
+}
+#m{
+padding-right:10px;
+}
+#n{
+padding:5px;}
+#w{
+padding-bottom:120px;
+}
+</style>
+<h1 id="x">Create a new account</h1>
+<p id="x">It's free always will be</p>
+<div class="container">
+<form class="userForm">
+
+Firstname:<input type="text" ng-model="user.firstname" placeholder="Firstname" required><br>
+Lastname:<input type="text" ng-model="user.lastname" placeholder="Lastname" required><br>
+Email-id:<input type="text" ng-model="user.email" placeholder="Email" required><br>
+Username:<input type="text" ng-model="user.username" ng-minlength="5" placeholder="Username" required><br>
+Password:<input type="password" ng-model="user.password" ng-minlength="5"  placeholder="Password" required 
+onmousedown="this.type='text'" onmouseup="this.type='password'" onmousemove="this.type='password'"><br>
+<label id="m">Select Role:</label><input type="radio" ng-model="user.role" value="Male" ><label id="n">Male</label>
+<input type="radio" ng-model="user.role" value="Female"><label id="n">Female</label>
+<input type="radio" ng-model="user.role" value="Admin"><label id="n">Admin</label>
+<br>
+<br>
+<input type="submit" ng-click="register()" value="Create Account"><br>
+</form>
+</div>
+<span style="color:red">{{error.message}}</span>

@@ -1,0 +1,27 @@
+<div class="table-responsive" ng-show="currentUser.role=='Admin'">
+<h1>List Of Blog Posts Waiting For Approval</h1>
+<table class="table">
+<tr><th>Recent Posts</th></tr>
+{{blogsWaitingForApproval.length}}
+{{blogsApproved.length}}
+<tr ng-repeat="blogPost in blogsWaitingForApproval | orderBy:'time':true">
+
+<td><a href="#getBlogForApproval/{{blogPost.id}}">{{blogPost.title}}</a></td>
+<td>Created By: {{blogPost.createdBy.username}}</td>
+<td>Created On: {{blogPost.postedOn | date:'MM/dd/yyyy HH:mm'}}</td>
+</tr>
+</table>
+</div>
+
+<div class="table-responsive">
+<h1>List Of Blog Posts</h1>
+<table class="table">
+<tr><th>Recent Posts</th></tr>
+<tr ng-repeat="blogPost in blogsApproved | orderBy:'time':true">
+
+<td><a href="#getBlogDetail/{{blogPost.id}}">{{blogPost.title}}</a></td>
+<td>Created By: {{blogPost.createdBy.username}}</td>
+<td>Created On: {{blogPost.postedOn | date:'MM/dd/yyyy HH.mm'}}</td>
+</tr>
+</table>
+</div>

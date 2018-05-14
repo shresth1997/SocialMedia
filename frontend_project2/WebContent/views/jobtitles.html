@@ -1,0 +1,47 @@
+<Style>
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width:60%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+#m{
+font-size:20px;;
+ font-family: "Times New Roman", Times, serif;
+}
+#n{
+padding-left:20px;
+}
+</Style>
+<div class="container">
+<input id="myInput" ng-model="jobTitle" placeholder="Search..">
+<table class="table">
+<thead>
+<tr>
+<th>Job Title</th><th>Posted On</th>
+</tr></thead>
+<tbody>
+<tr ng-repeat="j in jobs | filter:jobTitle">
+<td><a href="" ng-click="getJobDetail(j.id)">{{j.jobTitle}}</a></td><td>{{j.postedOn | date:'yyyy:mm:dd' }}</td>
+</tr></tbody></table>
+<br>
+<div ng-show="showdetails" id="m">
+<b>Job Details</b>
+<b>Job title :</b><label id="n"> {{job.jobTitle}}</label><br>
+<b>Job Description :</b> {{job.jobDescription}}<br>
+<b>Skills Required :</b> {{job.skillsRequired}}<br>
+<b>Yrs of Experience :</b> {{job.yrsOfExp}}<br>
+<b>Location : </b>{{job.location}}<br>
+<b>Salary : </b>{{job.salary}}<br>
+<b>Company Name :</b> {{job.companyName}}<br>
+</div>
+</div>

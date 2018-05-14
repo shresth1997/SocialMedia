@@ -1,0 +1,25 @@
+<style>
+hr{
+border-width: 5px;
+}
+.apple {
+padding-left: 10px;
+}
+.danger {background-color: #f44336;} /* Red */ 
+.danger:hover {background: #da190b;}
+</style>
+<b class="apple">Title: </b>{{blogPost.title}}
+<br>
+<b class="apple">Created By: </b>{{blogPost.createdBy.username}}
+<br>
+<b class="apple">On: </b>{{blogPost.postedOn | date:'medium'}}
+<br>
+<hr>
+<b class="apple">Description :</b>{{blogPost.description}}
+<br>
+<hr>
+<form class="apple">
+<input type="radio" ng-model="blogPost.approved" value="true">Approve<br>
+<input type="radio" ng-model="blogPost.approved" value="false">Reject<br><br>
+<button class="btn danger" ng-click="updateApproval()" >Update Approval</button>
+</form>
